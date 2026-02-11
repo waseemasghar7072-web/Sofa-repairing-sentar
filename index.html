@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sofa Repairing Center | Shabi Hasan</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --brand-gold: #c5a059;
+            --brand-brown: #4a3728;
+            --brand-dark: #1a1a1a;
+        }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #ffffff; color: var(--brand-dark); }
+        h1, h2 { font-family: 'Playfair Display', serif; }
+
+        .hero-gradient {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.85));
+        }
+
+        .btn-premium {
+            background: var(--brand-gold);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .btn-premium:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 30px rgba(197, 160, 89, 0.3);
+        }
+
+        .service-card {
+            border: 1px solid #eee;
+            transition: all 0.3s ease;
+        }
+        .service-card:hover {
+            border-color: var(--brand-gold);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+        }
+
+        /* Smooth scroll */
+        html { scroll-behavior: smooth; }
+    </style>
+</head>
+<body>
+
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md py-4 px-6 border-b border-gray-100">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 bg-[#4a3728] rounded-md flex items-center justify-center text-white font-bold">S</div>
+                <span class="font-extrabold text-lg tracking-tight uppercase">Sofa Repairing <span class="text-[#c5a059]">Center</span></span>
+            </div>
+            <a href="tel:+918868871046" class="flex items-center gap-2 bg-[#1a1a1a] text-white px-5 py-2 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-[#c5a059] transition-all">
+                <i class="fas fa-phone-alt"></i> Call Now
+            </a>
+        </div>
+    </nav>
+
+    <section class="relative min-h-screen flex items-center px-6 overflow-hidden">
+        <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&q=80&w=2070')] bg-cover bg-center"></div>
+        <div class="absolute inset-0 hero-gradient"></div>
+        
+        <div class="relative z-10 container mx-auto">
+            <div class="max-w-3xl">
+                <div class="flex items-center gap-2 mb-6">
+                    <span class="h-[1px] w-12 bg-[#c5a059]"></span>
+                    <span class="text-[#c5a059] font-bold tracking-[0.2em] text-xs uppercase">Est. 2014 | Quality Assurance</span>
+                </div>
+                <h1 class="text-5xl md:text-8xl text-white mb-8 leading-[1.1]">
+                    Your Sofa Deserves a <span class="italic text-[#c5a059]">New Life</span>
+                </h1>
+                <p class="text-lg md:text-xl text-gray-300 mb-12 font-light max-w-xl leading-relaxed">
+                    Premium restoration, mechanical recliner repair, and high-density foam replacement at your doorstep.
+                </p>
+                
+                <div class="flex flex-wrap gap-5">
+                    <a href="https://wa.me/918868871046" class="btn-premium text-white px-10 py-5 rounded-xl font-bold text-sm uppercase tracking-widest flex items-center gap-3">
+                        Book Free Inspection <i class="fas fa-arrow-right text-xs"></i>
+                    </a>
+                    <a href="tel:+918868871046" class="bg-white/10 backdrop-blur-md text-white border border-white/20 px-10 py-5 rounded-xl font-bold text-sm uppercase tracking-widest hover:bg-white hover:text-black transition-all">
+                        Immediate Call
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="bg-gray-50 py-10 border-b border-gray-100">
+        <div class="container mx-auto px-6 flex flex-wrap justify-between items-center gap-8 opacity-60 grayscale">
+            <span class="font-bold text-xl uppercase italic">Premium Fabrics</span>
+            <span class="font-bold text-xl uppercase italic">Expert Craftmen</span>
+            <span class="font-bold text-xl uppercase italic">Doorstep Service</span>
+            <span class="font-bold text-xl uppercase italic">Quality Foam</span>
+        </div>
+    </div>
+
+    <section id="services" class="py-32 px-6">
+        <div class="container mx-auto">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-6">
+                <div class="max-w-xl">
+                    <h2 class="text-4xl md:text-6xl font-bold mb-6">Tailored Restoration Services</h2>
+                    <p class="text-gray-500">हम सिर्फ सोफा ठीक नहीं करते, हम उसे एक नया एहसास देते हैं।</p>
+                </div>
+                <div class="text-[#c5a059] font-bold text-sm tracking-widest uppercase">Expertise in Every Stitch</div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <div class="service-card group p-10 rounded-[2rem] bg-white">
+                    <div class="w-16 h-16 bg-[#fcf8f1] rounded-2xl flex items-center justify-center mb-8 group-hover:bg-[#c5a059] transition-all">
+                        <i class="fas fa-couch text-[#c5a059] text-2xl group-hover:text-white"></i>
+                    </div>
+                    <h4 class="text-2xl font-bold mb-4 italic">Sofa Restoration</h4>
+                    <p class="text-gray-500 text-sm leading-relaxed mb-6">Complete overhaul from wood structure to final fabric finishing.</p>
+                    <a href="https://wa.me/918868871046" class="text-xs font-bold uppercase tracking-widest border-b-2 border-[#c5a059] pb-1">Enquire Now</a>
+                </div>
+
+                <div class="service-card group p-10 rounded-[2rem] bg-[#1a1a1a] text-white">
+                    <div class="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center mb-8">
+                        <i class="fas fa-cog text-[#c5a059] text-2xl"></i>
+                    </div>
+                    <h4 class="text-2xl font-bold mb-4 italic">Recliner Mechanism</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6">Specialized repair for manual and electric recliner systems.</p>
+                    <a href="https://wa.me/918868871046" class="text-[#c5a059] text-xs font-bold uppercase tracking-widest border-b-2 border-[#c5a059] pb-1">Enquire Now</a>
+                </div>
+
+                <div class="service-card group p-10 rounded-[2rem] bg-white">
+                    <div class="w-16 h-16 bg-[#fcf8f1] rounded-2xl flex items-center justify-center mb-8 group-hover:bg-[#c5a059] transition-all">
+                        <i class="fas fa-layer-group text-[#c5a059] text-2xl group-hover:text-white"></i>
+                    </div>
+                    <h4 class="text-2xl font-bold mb-4 italic">Foam Replacement</h4>
+                    <p class="text-gray-500 text-sm leading-relaxed mb-6">High-density luxury foam for long-lasting comfort and support.</p>
+                    <a href="https://wa.me/918868871046" class="text-xs font-bold uppercase tracking-widest border-b-2 border-[#c5a059] pb-1">Enquire Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-32 px-6 bg-gray-50">
+        <div class="container mx-auto max-w-6xl">
+            <div class="bg-white rounded-[3rem] p-12 md:p-20 shadow-2xl flex flex-wrap items-center">
+                <div class="w-full lg:w-1/2 mb-12 lg:mb-0">
+                    <h2 class="text-5xl font-bold mb-8 italic">Ready to transform your home?</h2>
+                    <p class="text-gray-500 mb-10 max-w-md text-lg">Send us a photo of your furniture on WhatsApp for an instant estimated quote.</p>
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-green-50 rounded-full flex items-center justify-center text-green-600">
+                                <i class="fab fa-whatsapp text-xl"></i>
+                            </div>
+                            <span class="text-xl font-bold">+91 88688 71046</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full lg:w-1/2">
+                    <div class="bg-gray-50 p-8 rounded-[2rem] border border-gray-100">
+                        <h4 class="text-xl font-bold mb-6">Direct Inquiry</h4>
+                        <form class="grid grid-cols-1 gap-4">
+                            <input type="text" placeholder="Your Name" class="p-5 bg-white rounded-2xl outline-none focus:ring-2 focus:ring-[#c5a059] border border-transparent focus:border-transparent transition-all">
+                            <input type="tel" placeholder="Your Phone Number" class="p-5 bg-white rounded-2xl outline-none focus:ring-2 focus:ring-[#c5a059] border border-transparent focus:border-transparent transition-all">
+                            <button class="bg-[#1a1a1a] text-white p-5 rounded-2xl font-bold uppercase tracking-widest hover:bg-[#c5a059] transition-all">Submit Inquiry</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <a href="https://wa.me/918868871046" class="fixed bottom-10 right-10 bg-[#25d366] text-white w-20 h-20 rounded-full flex items-center justify-center text-4xl shadow-2xl z-50 hover:scale-110 transition-transform active:scale-95">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+</body>
+</html>
