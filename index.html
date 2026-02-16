@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BZ Sofa Repairing Center | Elite Restoration Malakpet</title>
+    <title>BZ Recliner | Custom Sofa & Recliner Manufacturers</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -11,289 +11,130 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
     <style>
-        :root {
-            --primary: #6b4f3b;
-            --bg-light: #f5f5f5;
-            --dark: #1f1f1f;
-        }
-        body { font-family: 'Outfit', sans-serif; background-color: var(--bg-light); color: var(--dark); scroll-behavior: smooth; }
+        :root { --accent: #FF4D2E; --dark: #0F0F0F; --light: #E5E5E5; }
+        body { font-family: 'Outfit', sans-serif; background-color: var(--dark); color: var(--light); overflow-x: hidden; }
         .serif { font-family: 'Playfair Display', serif; }
         
-        .glass-header { background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(0,0,0,0.05); }
-        .service-card { transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1); border: 1px solid transparent; }
-        .service-card:hover { transform: translateY(-12px); border-color: var(--primary); background: white; box-shadow: 0 40px 80px rgba(107, 79, 59, 0.1); }
-        
-        .feature-card { background: white; border-radius: 1.5rem; padding: 2rem; border: 1px solid #eee; transition: all 0.3s ease; }
-        .feature-card:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.05); border-color: var(--primary); }
-
-        .testimonial-card { background: white; border-radius: 2rem; padding: 2.5rem; border: 1px solid #eee; position: relative; }
-        .testimonial-card::after { content: '\f10d'; font-family: 'Font Awesome 6 Free'; font-weight: 900; position: absolute; top: 2rem; right: 2rem; color: #6b4f3b; opacity: 0.1; font-size: 3rem; }
-
-        .btn-cta { background: var(--primary); transition: all 0.3s ease; }
-        .btn-cta:hover { letter-spacing: 1px; filter: brightness(1.1); box-shadow: 0 15px 30px rgba(107, 79, 59, 0.3); }
-
-        .hero-form input, .hero-form select {
-            border: 1px solid #eee;
+        .hero-gradient {
+            background: linear-gradient(rgba(15,15,15,0.7), rgba(15,15,15,0.9)), 
+            url('https://raw.githubusercontent.com/waseemasghar7072-web/Sofa-repairing-sentar/main/Recliner.jpg');
+            background-size: cover;
+            background-position: center;
         }
+
+        .glass-nav { background: rgba(15, 15, 15, 0.8); backdrop-filter: blur(15px); border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .accent-text { color: var(--accent); }
+        .accent-bg { background-color: var(--accent); }
+        .btn-premium { background-color: var(--accent); transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .btn-premium:hover { transform: scale(1.05); box-shadow: 0 15px 30px rgba(255, 77, 46, 0.3); }
+
+        /* CPanel Styling */
+        #adminPanel { display: none; position: fixed; top: 80px; right: 20px; width: 300px; background: white; color: black; z-index: 1000; padding: 20px; border-radius: 20px; box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
+        #loginModal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.9); z-index: 2000; align-items: center; justify-content: center; }
+        .admin-editable:hover { outline: 2px dashed var(--accent); cursor: pointer; }
     </style>
 </head>
 <body>
 
-    <nav class="fixed w-full z-50 glass-header py-5 px-6 md:px-12">
+    <div id="loginModal">
+        <div class="bg-[#1A1A1A] p-10 rounded-3xl text-center border border-white/10">
+            <h2 class="serif text-2xl text-white mb-6">BZ Admin Access</h2>
+            <input type="password" id="adminPass" placeholder="Enter Password" class="w-full p-4 bg-white/5 rounded-xl text-white outline-none mb-4 border border-white/10">
+            <button onclick="checkAdmin()" class="w-full py-4 accent-bg text-white rounded-xl font-bold">Unlock Dashboard</button>
+        </div>
+    </div>
+
+    <div id="adminPanel">
+        <h3 class="font-bold mb-4 border-b pb-2">BZ Dashboard</h3>
+        <button onclick="saveChanges()" class="w-full py-2 bg-green-600 text-white rounded-lg mb-2 text-xs font-bold uppercase">Save Locally</button>
+        <button onclick="exportCode()" class="w-full py-2 bg-blue-600 text-white rounded-lg mb-2 text-xs font-bold uppercase">Export for GitHub</button>
+        <button onclick="location.reload()" class="w-full py-2 bg-gray-200 text-gray-800 rounded-lg text-xs font-bold uppercase">Logout</button>
+    </div>
+
+    <nav class="fixed w-full z-50 glass-nav py-5 px-6 md:px-12">
         <div class="container mx-auto flex justify-between items-center">
-            <div class="flex items-center gap-3">
-                <div class="w-10 h-10 bg-[#6b4f3b] flex items-center justify-center rounded-xl shadow-lg">
+            <div class="flex items-center gap-3 cursor-pointer" onclick="handleLogoClick()">
+                <div class="w-10 h-10 accent-bg flex items-center justify-center rounded-lg shadow-lg">
                     <i class="fas fa-couch text-white text-lg"></i>
                 </div>
-                <span class="text-xl font-bold tracking-tight uppercase">BZ Sofa <span class="text-[#6b4f3b]">Repairing Center</span></span>
+                <span class="text-2xl font-bold tracking-tight uppercase">BZ <span class="accent-text">Recliner</span></span>
             </div>
-            <div class="hidden lg:flex items-center gap-10 text-[11px] font-bold uppercase tracking-widest text-gray-400">
-                <a href="#features" class="hover:text-[#6b4f3b] transition">Why Us</a>
-                <a href="#services" class="hover:text-[#6b4f3b] transition">Services</a>
-                <a href="#reviews" class="hover:text-[#6b4f3b] transition">Reviews</a>
-            </div>
-            <a href="tel:+918868871046" class="btn-cta text-white px-7 py-3 rounded-full text-[11px] font-bold uppercase tracking-widest shadow-xl">
-                Call Now
+            <a href="https://wa.me/918868871046" class="btn-premium text-white px-8 py-3 rounded-full text-[11px] font-bold uppercase tracking-widest shadow-xl">
+                Start Order
             </a>
         </div>
     </nav>
 
-    <section class="min-h-screen flex items-center pt-32 md:pt-24 px-6 md:px-12 bg-white">
-        <div class="container mx-auto grid lg:grid-cols-2 gap-20 items-center">
-            
-            <div data-aos="fade-right">
-                <div class="inline-flex items-center gap-3 px-4 py-2 bg-[#6b4f3b]/5 rounded-full mb-8">
-                    <span class="text-[#6b4f3b] text-[10px] font-bold uppercase tracking-widest"><i class="fas fa-map-marker-alt mr-2"></i> Malakpet, Hyderabad</span>
-                </div>
-                <h1 class="serif text-5xl md:text-7xl mb-6 leading-[1.1]">Luxury Sofa <br><span class="italic text-[#6b4f3b]">Restoration</span></h1>
-                <p class="text-gray-500 text-lg mb-10 max-w-lg leading-relaxed">BZ Sofa Repairing Center by Shabi Hasan. The most trusted name for elite furniture repair in <b>Malakpet, Hyderabad</b>.</p>
-                
-                <div class="bg-gray-50 p-8 rounded-[2rem] shadow-lg hero-form max-w-md">
-                    <h4 class="text-xl font-bold mb-6 text-center">Book Your Service Today</h4>
-                    <form class="space-y-4">
-                        <input type="text" placeholder="Full Name *" class="w-full p-4 bg-white rounded-xl text-dark outline-none focus:ring-2 focus:ring-[#6b4f3b] transition" required>
-                        <input type="tel" placeholder="Phone Number *" class="w-full p-4 bg-white rounded-xl text-dark outline-none focus:ring-2 focus:ring-[#6b4f3b] transition" required>
-                        <select class="w-full p-4 bg-white rounded-xl text-gray-500 outline-none focus:ring-2 focus:ring-[#6b4f3b] transition">
-                            <option>Select Service *</option>
-                            <option>Sofa Repair</option>
-                            <option>Recliner Repair</option>
-                            <option>Foam Change</option>
-                            <option>Fabric Change</option>
-                        </select>
-                        <button class="w-full btn-cta text-white py-4 rounded-xl font-bold uppercase tracking-widest">Get a Callback</button>
-                    </form>
-                </div>
-            </div>
-
-            <div class="relative hidden lg:block" data-aos="zoom-in" data-aos-delay="200">
-                <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&q=80&w=1200" alt="Sofa Repair" class="rounded-[3rem] shadow-[0_50px_100px_rgba(0,0,0,0.1)] relative z-10">
-                <div class="absolute -bottom-10 -right-10 bg-white p-8 rounded-[2rem] shadow-2xl z-20 border border-gray-50">
-                    <div class="text-center">
-                        <p class="text-[10px] uppercase font-bold text-gray-400 tracking-widest mb-1">Expert in</p>
-                        <p class="text-lg font-bold text-[#6b4f3b]">Malakpet</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="py-20 bg-[#6b4f3b] text-white">
-        <div class="container mx-auto px-6 md:px-12">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-                <div data-aos="fade-up">
-                    <h3 class="text-5xl font-bold mb-2">10K+</h3>
-                    <p class="text-xs uppercase tracking-widest opacity-80">Happy Customers</p>
-                </div>
-                <div data-aos="fade-up" data-aos-delay="100">
-                    <h3 class="text-5xl font-bold mb-2">50K+</h3>
-                    <p class="text-xs uppercase tracking-widest opacity-80">Sofas Serviced</p>
-                </div>
-                <div data-aos="fade-up" data-aos-delay="200">
-                    <h3 class="text-5xl font-bold mb-2">4.9</h3>
-                    <p class="text-xs uppercase tracking-widest opacity-80">Average Rating</p>
-                </div>
-                <div data-aos="fade-up" data-aos-delay="300">
-                    <h3 class="text-5xl font-bold mb-2">15+</h3>
-                    <p class="text-xs uppercase tracking-widest opacity-80">Years Experience</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="features" class="py-32 px-6 md:px-12">
+    <section class="relative min-h-screen flex items-center px-6 md:px-12 hero-gradient">
         <div class="container mx-auto">
-            <div class="text-center mb-20">
-                <span class="text-[#6b4f3b] font-bold text-[11px] uppercase tracking-[0.4em]">Why Choose Us</span>
-                <h2 class="serif text-5xl mt-4 mb-6">Premium Features</h2>
-                <p class="text-gray-500 max-w-xl mx-auto">Experience the best sofa care service in Malakpet with our exclusive benefits.</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="feature-card" data-aos="fade-up">
-                    <div class="w-14 h-14 bg-[#6b4f3b]/10 rounded-xl flex items-center justify-center mb-6">
-                        <i class="fas fa-clock text-[#6b4f3b] text-2xl"></i>
-                    </div>
-                    <h4 class="text-xl font-bold mb-3">Same Day Service</h4>
-                    <p class="text-gray-500 text-sm leading-relaxed">Quick turnaround for urgent repair needs in Malakpet area.</p>
+            <div class="max-w-4xl" data-aos="fade-up">
+                <div class="inline-flex items-center gap-3 px-4 py-2 bg-white/5 rounded-full mb-8 border border-white/10">
+                    <span class="w-2 h-2 accent-bg rounded-full animate-pulse"></span>
+                    <span class="text-white text-[10px] font-bold uppercase tracking-widest">Manufacturing Unit: Malakpet, Hyderabad</span>
                 </div>
-
-                <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="w-14 h-14 bg-[#6b4f3b]/10 rounded-xl flex items-center justify-center mb-6">
-                        <i class="fas fa-thumbs-up text-[#6b4f3b] text-2xl"></i>
-                    </div>
-                    <h4 class="text-xl font-bold mb-3">100% Satisfaction</h4>
-                    <p class="text-gray-500 text-sm leading-relaxed">We guarantee quality workmanship. Your satisfaction is our priority.</p>
-                </div>
-
-                <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="w-14 h-14 bg-[#6b4f3b]/10 rounded-xl flex items-center justify-center mb-6">
-                        <i class="fas fa-users text-[#6b4f3b] text-2xl"></i>
-                    </div>
-                    <h4 class="text-xl font-bold mb-3">Expert Technicians</h4>
-                    <p class="text-gray-500 text-sm leading-relaxed">Certified professionals trained in the latest sofa care techniques.</p>
-                </div>
-
-                <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="w-14 h-14 bg-[#6b4f3b]/10 rounded-xl flex items-center justify-center mb-6">
-                        <i class="fas fa-truck text-[#6b4f3b] text-2xl"></i>
-                    </div>
-                    <h4 class="text-xl font-bold mb-3">Free Pickup & Delivery</h4>
-                    <p class="text-gray-500 text-sm leading-relaxed">Convenient doorstep service for all your sofa needs in Hyderabad.</p>
-                </div>
-
-                <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
-                    <div class="w-14 h-14 bg-[#6b4f3b]/10 rounded-xl flex items-center justify-center mb-6">
-                        <i class="fas fa-certificate text-[#6b4f3b] text-2xl"></i>
-                    </div>
-                    <h4 class="text-xl font-bold mb-3">Premium Materials</h4>
-                    <p class="text-gray-500 text-sm leading-relaxed">Only high-quality, durable materials and fabrics are used.</p>
-                </div>
-
-                 <div class="feature-card" data-aos="fade-up" data-aos-delay="500">
-                    <div class="w-14 h-14 bg-[#6b4f3b]/10 rounded-xl flex items-center justify-center mb-6">
-                        <i class="fas fa-headset text-[#6b4f3b] text-2xl"></i>
-                    </div>
-                    <h4 class="text-xl font-bold mb-3">24/7 Support</h4>
-                    <p class="text-gray-500 text-sm leading-relaxed">Our customer support team is always available to assist you.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="services" class="py-32 px-6 md:px-12 bg-white">
-        <div class="container mx-auto">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-24 gap-8">
-                <div class="max-w-xl">
-                    <h2 class="serif text-5xl mb-6">Signature Craft</h2>
-                    <p class="text-gray-500">Premium cloth change, foam replacement, and recliner fix in Malakpet.</p>
-                </div>
-                <div class="text-[#6b4f3b] font-bold text-[11px] uppercase tracking-[0.4em]">Expertise in Hyderabad</div>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="service-card p-10 rounded-[2.5rem] bg-gray-50" data-aos="fade-up">
-                    <i class="fas fa-couch text-3xl mb-8 text-[#6b4f3b]"></i>
-                    <h4 class="text-xl font-bold mb-4">Sofa Repair</h4>
-                    <p class="text-gray-500 text-sm">Elite structural restoration for all sofa brands.</p>
-                </div>
-                <div class="service-card p-10 rounded-[2.5rem] bg-gray-50" data-aos="fade-up" data-aos-delay="100">
-                    <i class="fas fa-chair text-3xl mb-8 text-[#6b4f3b]"></i>
-                    <h4 class="text-xl font-bold mb-4">Recliner Repair</h4>
-                    <p class="text-gray-500 text-sm">Mechanical fix at your doorstep in Malakpet.</p>
-                </div>
-                <div class="service-card p-10 rounded-[2.5rem] bg-gray-50" data-aos="fade-up" data-aos-delay="200">
-                    <i class="fas fa-fill text-3xl mb-8 text-[#6b4f3b]"></i>
-                    <h4 class="text-xl font-bold mb-4">Foam Change</h4>
-                    <p class="text-gray-500 text-sm">High-density luxury foam for long-lasting comfort.</p>
-                </div>
-                <div class="service-card p-10 rounded-[2.5rem] bg-gray-50" data-aos="fade-up" data-aos-delay="300">
-                    <i class="fas fa-magic text-3xl mb-8 text-[#6b4f3b]"></i>
-                    <h4 class="text-xl font-bold mb-4">Fabric Change</h4>
-                    <p class="text-gray-500 text-sm">Exclusive imported fabric collections.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="reviews" class="py-32 px-6 md:px-12 bg-gray-50">
-        <div class="container mx-auto">
-            <div class="text-center mb-20">
-                <h2 class="serif text-5xl mb-4">Happy Clients in Malakpet</h2>
-                <p class="text-gray-500">Real feedback from our premium customers in Hyderabad.</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="testimonial-card" data-aos="fade-up">
-                    <div class="flex text-yellow-500 text-xs mb-6">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                    </div>
-                    <p class="text-gray-600 mb-8 italic">"BZ Sofa Repairing Center did a fantastic job with our L-shape sofa. Shabi Hasan is very knowledgeable. Best service in Malakpet!"</p>
-                    <div class="flex items-center gap-4">
-                        <div class="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center font-bold text-[#6b4f3b]">MA</div>
-                        <div>
-                            <p class="font-bold">Mohd. Ahmed</p>
-                            <p class="text-[10px] text-gray-400 uppercase font-bold tracking-widest">Malakpet, Hyderabad</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="flex text-yellow-500 text-xs mb-6">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                    </div>
-                    <p class="text-gray-600 mb-8 italic">"Highly professional. They changed the fabric and foam of my old sofa, and now it looks brand new. Best sofa repair in Hyderabad."</p>
-                    <div class="flex items-center gap-4">
-                        <div class="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center font-bold text-[#6b4f3b]">SY</div>
-                        <div>
-                            <p class="font-bold">Syed Yaseen</p>
-                            <p class="text-[10px] text-gray-400 uppercase font-bold tracking-widest">Dilsukhnagar Area</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="flex text-yellow-500 text-xs mb-6">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                    </div>
-                    <p class="text-gray-600 mb-8 italic">"Fastest doorstep service I've seen. Shabi and his team fixed my motorized recliner in no time. Great work by BZ Sofa Center."</p>
-                    <div class="flex items-center gap-4">
-                        <div class="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center font-bold text-[#6b4f3b]">RK</div>
-                        <div>
-                            <p class="font-bold">Rajesh Kumar</p>
-                            <p class="text-[10px] text-gray-400 uppercase font-bold tracking-widest">Malakpet Resident</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="py-32 px-6">
-        <div class="container mx-auto max-w-5xl bg-[#1f1f1f] text-white rounded-[4rem] p-12 md:p-24 overflow-hidden relative shadow-2xl text-center">
-            <div data-aos="fade-up">
-                <h2 class="serif text-5xl mb-8 leading-tight">Shabi Hasan <br><span class="text-[#6b4f3b]">Malakpet</span></h2>
-                <div class="space-y-6 flex flex-col items-center">
-                    <p class="text-2xl flex items-center gap-4 justify-center"><i class="fas fa-phone text-[#6b4f3b]"></i> +91 88688 71046</p>
-                    <p class="text-lg text-gray-400 flex items-center gap-4 justify-center"><i class="fas fa-map-marker-alt text-[#6b4f3b]"></i> Malakpet, Hyderabad, Telangana</p>
-                    <a href="https://wa.me/918868871046" class="btn-cta text-white px-10 py-5 rounded-2xl font-bold text-xs uppercase tracking-[0.2em] flex items-center gap-3 shadow-2xl transition-all mt-8">
-                        <i class="fab fa-whatsapp text-lg"></i> Chat on WhatsApp
+                <h1 id="hero-title" class="serif text-6xl md:text-9xl mb-8 leading-[1.1] text-white admin-editable">Custom Comfort, Built For You</h1>
+                <p id="hero-sub" class="text-gray-400 text-lg md:text-xl mb-12 max-w-2xl leading-relaxed admin-editable">
+                    BZ Recliner by Shabi Hasan. We manufacture luxury recliners and sofas tailored to your specific size and style.
+                </p>
+                <div class="flex flex-wrap gap-6">
+                    <a href="https://wa.me/918868871046" class="btn-premium text-white px-12 py-5 rounded-2xl font-bold text-xs uppercase tracking-[0.2em] flex items-center gap-3">
+                        WhatsApp Shabi Hasan <i class="fab fa-whatsapp"></i>
                     </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="py-12 border-t border-gray-100 text-center">
-        <p class="text-[10px] uppercase font-bold tracking-[0.5em] text-gray-400">© 2026 BZ Sofa Repairing Center | Shabi Hasan - Malakpet</p>
+    <section class="py-32 px-6 bg-[#0A0A0A]">
+        <div class="container mx-auto text-center mb-20">
+            <h2 class="serif text-5xl text-white italic">Elite Manufacturing Process</h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-6xl mx-auto">
+            <div class="bg-[#1A1A1A] p-10 rounded-[3rem] border border-white/5" data-aos="fade-right">
+                <img src="https://raw.githubusercontent.com/waseemasghar7072-web/Sofa-repairing-sentar/main/Recliner.jpg" class="w-full h-80 object-cover rounded-2xl mb-8 shadow-2xl" alt="Custom Recliner Design">
+                <h3 class="serif text-3xl mb-4 text-white">Bespoke Recliners</h3>
+                <p class="text-gray-500 mb-6">Har recliner solid Teak wood aur 40D orthopedic foam se bana hota hai.</p>
+                <p class="accent-text font-bold">Starting ₹18,500</p>
+            </div>
+            <div class="bg-[#1A1A1A] p-10 rounded-[3rem] border border-white/5 flex flex-col justify-center" data-aos="fade-left">
+                <h3 class="serif text-4xl mb-8 text-white italic">Why BZ Recliner?</h3>
+                <ul class="space-y-6 text-gray-400">
+                    <li class="flex items-center gap-4"><i class="fas fa-check accent-text"></i> 15+ Years Craftsmanship</li>
+                    <li class="flex items-center gap-4"><i class="fas fa-check accent-text"></i> Direct Unit Price</li>
+                    <li class="flex items-center gap-4"><i class="fas fa-check accent-text"></i> Malakpet Doorstep Delivery</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-20 text-center border-t border-white/5">
+        <p class="text-[11px] font-bold uppercase tracking-[0.6em] text-gray-600 mb-4">BZ Recliner | Custom Manufacturing Studio</p>
+        <p class="text-xs text-gray-500">© 2026 Shabi Hasan | Malakpet, Hyderabad | +91 88688 71046</p>
     </footer>
 
-    <a href="https://wa.me/918868871046" class="fixed bottom-10 right-10 bg-[#25d366] text-white w-16 h-16 md:w-20 md:h-20 rounded-full flex items-center justify-center text-3xl shadow-2xl z-[100] hover:scale-110 transition active:scale-95">
+    <a href="https://wa.me/918868871046" class="fixed bottom-10 right-10 accent-bg text-white w-20 h-20 rounded-full flex items-center justify-center text-4xl shadow-2xl z-[100] hover:scale-110 transition active:scale-90">
         <i class="fab fa-whatsapp"></i>
     </a>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({ duration: 1200, once: true });
+        let clicks = 0;
+        function handleLogoClick() {
+            clicks++;
+            if(clicks === 3) { document.getElementById('loginModal').style.display='flex'; clicks=0; }
+        }
+        function checkAdmin() {
+            if(document.getElementById('adminPass').value === 'bzadmin786') {
+                document.getElementById('loginModal').style.display='none';
+                document.getElementById('adminPanel').style.display='block';
+                document.querySelectorAll('.admin-editable').forEach(el => el.contentEditable = true);
+            } else { alert("Access Denied"); }
+        }
+        function exportCode() {
+            const blob = new Blob([document.documentElement.outerHTML], {type: 'text/html'});
+            const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'index.html'; a.click();
+        }
     </script>
 </body>
 </html>
