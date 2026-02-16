@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BZ Recliner | Custom Sofa & Recliner Studio</title>
+    <title>BZ Recliner | Custom Sofa & Recliner Manufacturers</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -15,9 +15,9 @@
         body { font-family: 'Outfit', sans-serif; background-color: var(--dark); color: var(--light); overflow-x: hidden; }
         .serif { font-family: 'Playfair Display', serif; }
         
-        /* Hero background with your GitHub image */
+        /* Hero section background using your GitHub image */
         .hero-gradient {
-            background: linear-gradient(rgba(15,15,15,0.8), rgba(15,15,15,0.9)), 
+            background: linear-gradient(rgba(15,15,15,0.7), rgba(15,15,15,0.8)), 
             url('https://raw.githubusercontent.com/waseemasghar7072-web/Sofa-repairing-sentar/main/Recliner.jpg');
             background-size: cover; background-position: center;
         }
@@ -25,10 +25,12 @@
         .glass-nav { background: rgba(15, 15, 15, 0.85); backdrop-filter: blur(15px); border-bottom: 1px solid rgba(255,255,255,0.05); }
         .accent-bg { background-color: var(--accent); }
         .accent-text { color: var(--accent); }
-        .style-card { background: #1A1A1A; transition: all 0.5s ease; border: 1px solid rgba(255,255,255,0.05); }
+
+        /* Style Cards */
+        .style-card { background: #1A1A1A; border-radius: 2.5rem; overflow: hidden; border: 1px solid rgba(255,255,255,0.05); transition: all 0.4s ease; }
         .style-card:hover { border-color: var(--accent); transform: translateY(-10px); }
 
-        /* CPanel Styling */
+        /* Admin Panel Styling */
         #adminPanel { display: none; position: fixed; top: 80px; right: 20px; width: 300px; background: white; color: black; z-index: 1000; padding: 20px; border-radius: 20px; box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
         #loginModal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.9); z-index: 2000; align-items: center; justify-content: center; }
         .admin-editable:hover { outline: 2px dashed var(--accent); cursor: pointer; }
@@ -39,16 +41,16 @@
     <div id="loginModal">
         <div class="bg-[#1A1A1A] p-10 rounded-3xl text-center border border-white/10">
             <h2 class="serif text-2xl text-white mb-6">BZ Dashboard Login</h2>
-            <input type="password" id="adminPass" placeholder="Password" class="w-full p-4 bg-white/5 rounded-xl text-white outline-none mb-4 border border-white/10">
-            <button onclick="checkAdmin()" class="w-full py-4 accent-bg text-white rounded-xl font-bold">Unlock</button>
+            <input type="password" id="adminPass" placeholder="Enter Password" class="w-full p-4 bg-white/5 rounded-xl text-white outline-none mb-4 border border-white/10">
+            <button onclick="checkAdmin()" class="w-full py-4 accent-bg text-white rounded-xl font-bold">Unlock Control</button>
         </div>
     </div>
 
     <div id="adminPanel">
         <h3 class="font-bold mb-4 border-b pb-2">BZ Dashboard</h3>
-        <button onclick="saveChanges()" class="w-full py-2 bg-green-600 text-white rounded-lg mb-2 text-xs font-bold uppercase">Save Locally</button>
-        <button onclick="exportCode()" class="w-full py-2 bg-blue-600 text-white rounded-lg mb-2 text-xs font-bold uppercase">Export for GitHub</button>
-        <button onclick="location.reload()" class="w-full py-2 bg-gray-200 text-gray-800 rounded-lg text-xs font-bold uppercase">Logout</button>
+        <button onclick="saveChanges()" class="w-full py-2 bg-green-600 text-white rounded-lg mb-2 text-xs font-bold uppercase">SAVE LOCALLY</button>
+        <button onclick="exportCode()" class="w-full py-2 bg-blue-600 text-white rounded-lg mb-2 text-xs font-bold uppercase">EXPORT FOR GITHUB</button>
+        <button onclick="location.reload()" class="w-full py-2 bg-gray-200 text-gray-800 rounded-lg text-xs font-bold uppercase">LOGOUT</button>
     </div>
 
     <nav class="fixed w-full z-50 glass-nav py-5 px-6 md:px-12">
@@ -57,7 +59,7 @@
                 <div class="w-10 h-10 accent-bg flex items-center justify-center rounded-lg shadow-lg">
                     <i class="fas fa-couch text-white text-lg"></i>
                 </div>
-                <span class="text-2xl font-bold tracking-tight uppercase">BZ <span class="accent-text">Recliner</span></span>
+                <span class="text-2xl font-bold tracking-tight uppercase">BZ <span class="accent-text">RECLINER</span></span>
             </div>
             <a href="https://wa.me/918868871046" class="accent-bg text-white px-8 py-3 rounded-full text-[11px] font-bold uppercase tracking-widest shadow-xl">START ORDER</a>
         </div>
@@ -66,75 +68,88 @@
     <section class="relative min-h-screen flex items-center px-6 md:px-12 hero-gradient">
         <div class="container mx-auto">
             <div class="max-w-4xl" data-aos="fade-up">
-                <span class="accent-text text-[10px] font-bold uppercase tracking-[0.3em] mb-4 block underline">Manufacturing Unit: Malakpet, Hyderabad</span>
+                <div class="inline-flex items-center gap-2 px-4 py-2 bg-white/5 rounded-full mb-8 border border-white/10">
+                    <span class="w-2 h-2 accent-bg rounded-full animate-pulse"></span>
+                    <span class="text-white text-[10px] font-bold uppercase tracking-widest">MANUFACTURING UNIT: MALAKPET, HYDERABAD</span>
+                </div>
                 <h1 id="hero-title" class="serif text-6xl md:text-9xl mb-8 leading-[1.1] text-white admin-editable">Custom Comfort, Built For You</h1>
-                <p id="hero-sub" class="text-gray-400 text-lg md:text-xl mb-12 max-w-2xl admin-editable">BZ Recliner by Shabi Hasan. We manufacture luxury recliners and sofas tailored to your specific size and style.</p>
-                <a href="https://wa.me/918868871046" class="accent-bg text-white px-12 py-5 rounded-2xl font-bold text-xs uppercase tracking-widest inline-block">WHATSAPP SHABI HASAN</a>
+                <p id="hero-sub" class="text-gray-400 text-lg md:text-xl mb-12 max-w-2xl admin-editable">
+                    BZ Recliner by Shabi Hasan. We manufacture luxury recliners and sofas tailored to your specific size and style.
+                </p>
+                <a href="https://wa.me/918868871046" class="accent-bg text-white px-10 py-5 rounded-2xl font-bold text-xs uppercase tracking-widest inline-flex items-center gap-3">
+                    WHATSAPP SHABI HASAN <i class="fab fa-whatsapp"></i>
+                </a>
             </div>
         </div>
     </section>
 
-    <section class="py-12 bg-[#0A0A0A] border-y border-white/5">
+    <section class="py-16 bg-[#0F0F0F] border-y border-white/5">
         <div class="container mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div><h3 class="text-4xl font-bold accent-text mb-1">10K+</h3><p class="text-[9px] uppercase tracking-widest text-gray-500">Happy Customers</p></div>
-            <div><h3 class="text-4xl font-bold accent-text mb-1">15+</h3><p class="text-[9px] uppercase tracking-widest text-gray-500">Years Experience</p></div>
-            <div><h3 class="text-4xl font-bold accent-text mb-1">4.9</h3><p class="text-[9px] uppercase tracking-widest text-gray-500">Average Rating</p></div>
-            <div><h3 class="text-4xl font-bold accent-text mb-1">5 Yr</h3><p class="text-[9px] uppercase tracking-widest text-gray-500">Frame Warranty</p></div>
+            <div><h3 class="text-4xl font-bold accent-text mb-2 admin-editable">10K+</h3><p class="text-[9px] uppercase tracking-widest text-gray-500">HAPPY CUSTOMERS</p></div>
+            <div><h3 class="text-4xl font-bold accent-text mb-2 admin-editable">15+</h3><p class="text-[9px] uppercase tracking-widest text-gray-500">YEARS EXPERIENCE</p></div>
+            <div><h3 class="text-4xl font-bold accent-text mb-2 admin-editable">4.9</h3><p class="text-[9px] uppercase tracking-widest text-gray-500">AVERAGE RATING</p></div>
+            <div><h3 class="text-4xl font-bold accent-text mb-2 admin-editable">5 Yr</h3><p class="text-[9px] uppercase tracking-widest text-gray-500">FRAME WARRANTY</p></div>
         </div>
     </section>
 
     <section class="py-32 px-6">
-        <div class="container mx-auto text-center mb-24">
-            <h2 class="serif text-5xl md:text-7xl text-white">Signature Styles</h2>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-6xl mx-auto">
-            <div class="style-card rounded-[3rem] overflow-hidden" data-aos="fade-right">
-                <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&q=80&w=800" class="w-full h-80 object-cover">
-                <div class="p-12">
-                    <h3 class="serif text-3xl mb-4 text-white admin-editable">Bespoke Sofas</h3>
-                    <p class="text-gray-500 mb-6">Customized in size, color, and fabric choice.</p>
+        <div class="container mx-auto">
+            <h2 class="serif text-5xl text-white text-center mb-24">Signature Styles</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-6xl mx-auto">
+                <div class="style-card" data-aos="fade-right">
+                    <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&q=80&w=1200" class="w-full h-80 object-cover">
+                    <div class="p-12">
+                        <h3 class="serif text-3xl mb-4 text-white admin-editable">Bespoke Sofas</h3>
+                        <p class="text-gray-500 text-sm mb-6 admin-editable">Customized in size, color, and fabric choice.</p>
+                        <a href="https://wa.me/918868871046" class="accent-text font-bold text-xs uppercase tracking-widest border-b border-accent pb-1">INQUIRE PRICE</a>
+                    </div>
                 </div>
-            </div>
-            <div class="style-card rounded-[3rem] overflow-hidden" data-aos="fade-left">
-                <img src="https://raw.githubusercontent.com/waseemasghar7072-web/Sofa-repairing-sentar/main/Recliner.jpg" class="w-full h-80 object-cover">
-                <div class="p-12">
-                    <h3 class="serif text-3xl mb-4 text-white admin-editable">Elite Recliners</h3>
-                    <p class="text-gray-500 mb-6">Motorized and manual options with luxury foam.</p>
+                <div class="style-card" data-aos="fade-left">
+                    <img src="https://raw.githubusercontent.com/waseemasghar7072-web/Sofa-repairing-sentar/main/Recliner.jpg" class="w-full h-80 object-cover">
+                    <div class="p-12">
+                        <h3 class="serif text-3xl mb-4 text-white admin-editable">Elite Recliners</h3>
+                        <p class="text-gray-500 text-sm mb-6 admin-editable">Motorized and manual options with luxury foam.</p>
+                        <a href="https://wa.me/918868871046" class="accent-text font-bold text-xs uppercase tracking-widest border-b border-accent pb-1">START CUSTOMIZING</a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <section class="py-32 bg-[#0A0A0A] px-6">
-        <div class="container mx-auto text-center mb-24">
-            <h2 class="serif text-5xl text-white">The BZ Process</h2>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div class="text-center p-8"><h4 class="text-accent text-3xl font-bold mb-4">01</h4><p class="text-white font-bold mb-2">Consultation</p><p class="text-gray-500 text-xs">Aapka design, humara mashwara.</p></div>
-            <div class="text-center p-8"><h4 class="text-accent text-3xl font-bold mb-4">02</h4><p class="text-white font-bold mb-2">Crafting</p><p class="text-gray-500 text-xs">Teak wood frame manufacturing.</p></div>
-            <div class="text-center p-8"><h4 class="text-accent text-3xl font-bold mb-4">03</h4><p class="text-white font-bold mb-2">Upholstery</p><p class="text-gray-500 text-xs">Premium fabric stitching.</p></div>
-            <div class="text-center p-8"><h4 class="text-accent text-3xl font-bold mb-4">04</h4><p class="text-white font-bold mb-2">Delivery</p><p class="text-gray-500 text-xs">Safe doorstep delivery in Malakpet.</p></div>
-        </div>
-    </section>
-
-    <section class="py-32 px-6">
-        <div class="container mx-auto max-w-4xl">
-            <h2 class="serif text-5xl text-white text-center mb-20 italic">What Our Clients Say</h2>
-            <div class="space-y-8">
-                <div class="bg-[#1A1A1A] p-10 rounded-3xl border-l-4 border-accent">
-                    <p class="text-lg italic text-gray-300">"BZ Recliner made my 5-seater look brand new. The finish is world-class!"</p>
-                    <p class="mt-4 font-bold text-white">— Animesh Khanna, Hyderabad</p>
+        <div class="container mx-auto">
+            <h2 class="serif text-4xl text-white text-center mb-20 italic">Elite Manufacturing Process</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 max-w-6xl mx-auto">
+                <div class="bg-[#1A1A1A] p-10 rounded-[3rem] border border-white/5" data-aos="fade-up">
+                    <img src="https://raw.githubusercontent.com/waseemasghar7072-web/Sofa-repairing-sentar/main/Recliner.jpg" class="w-full h-80 object-cover rounded-3xl mb-8 shadow-2xl">
+                    <h3 class="serif text-3xl mb-4 text-white admin-editable">Bespoke Recliners</h3>
+                    <p class="text-gray-500 text-sm mb-4 admin-editable">Har recliner solid Teak wood aur 40D orthopedic foam se bana hota hai.</p>
+                    <p class="accent-text text-xl font-bold admin-editable">Starting ₹18,500</p>
                 </div>
-                <div class="bg-[#1A1A1A] p-10 rounded-3xl border-l-4 border-accent">
-                    <p class="text-lg italic text-gray-300">"Best recliner manufacturers in Malakpet. Shabi Hasan's work is flawless."</p>
-                    <p class="mt-4 font-bold text-white">— Suresh Pandey</p>
+                <div class="flex flex-col justify-center" data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="serif text-4xl mb-10 text-white italic">Why BZ Recliner?</h3>
+                    <ul class="space-y-8 text-gray-400">
+                        <li class="flex items-center gap-4"><i class="fas fa-check accent-text"></i> <span class="admin-editable">15+ Years Craftsmanship</span></li>
+                        <li class="flex items-center gap-4"><i class="fas fa-check accent-text"></i> <span class="admin-editable">Direct Unit Price</span></li>
+                        <li class="flex items-center gap-4"><i class="fas fa-check accent-text"></i> <span class="admin-editable">Malakpet Doorstep Delivery</span></li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="py-20 text-center border-t border-white/5">
-        <p class="text-[11px] font-bold uppercase tracking-[0.6em] text-gray-600 mb-4">BZ RECLINER | CUSTOM MANUFACTURING STUDIO</p>
+    <section class="py-32 px-6">
+        <div class="container mx-auto max-w-4xl text-center">
+            <h2 class="serif text-5xl text-white mb-20 italic">What Our Clients Say</h2>
+            <div class="bg-[#1A1A1A] p-12 rounded-[3rem] border-l-4 border-accent shadow-xl text-left" data-aos="fade-up">
+                <p class="text-xl italic text-gray-300 admin-editable">"BZ Recliner made my 5-seater look like a brand new IKEA model. Best manufacturing in Hyderabad!"</p>
+                <p class="mt-6 font-bold text-white admin-editable">— Animesh Khanna, Hyderabad</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-20 text-center border-t border-white/5 bg-[#0F0F0F]">
+        <p class="text-[11px] font-bold uppercase tracking-[0.5em] text-gray-600 mb-6">BZ RECLINER | CUSTOM MANUFACTURING STUDIO</p>
         <p class="text-xs text-gray-500">© 2026 Shabi Hasan | Malakpet, Hyderabad | +91 88688 71046</p>
     </footer>
 
@@ -145,19 +160,35 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({ duration: 1000, once: true });
-        let clicks = 0;
-        function handleLogoClick() { clicks++; if(clicks === 3) { document.getElementById('loginModal').style.display='flex'; clicks=0; } }
+        
+        let logoClicks = 0;
+        function handleLogoClick() {
+            logoClicks++;
+            if(logoClicks === 3) { document.getElementById('loginModal').style.display='flex'; logoClicks=0; }
+        }
+
         function checkAdmin() {
-            if(document.getElementById('adminPass').value === 'bzadmin786') {
+            const pass = document.getElementById('adminPass').value;
+            if(pass === 'bzadmin786') {
                 document.getElementById('loginModal').style.display='none';
                 document.getElementById('adminPanel').style.display='block';
                 document.querySelectorAll('.admin-editable').forEach(el => el.contentEditable = true);
-            } else { alert("Access Denied"); }
+                alert("Edit Mode Active! Click on any text to change it.");
+            } else { alert("Wrong Password!"); }
         }
-        function saveChanges() { alert("Changes saved to browser! Click 'Export' to make it permanent."); }
+
+        function saveChanges() { 
+            alert("Changes saved to browser! Click 'EXPORT FOR GITHUB' to download the updated code.");
+        }
+
         function exportCode() {
-            const blob = new Blob([document.documentElement.outerHTML], {type: 'text/html'});
-            const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'index.html'; a.click();
+            const currentHTML = document.documentElement.outerHTML;
+            const blob = new Blob([currentHTML], {type: 'text/html'});
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = 'index.html';
+            a.click();
+            alert("New index.html downloaded. Upload it to GitHub to go live!");
         }
     </script>
 </body>
